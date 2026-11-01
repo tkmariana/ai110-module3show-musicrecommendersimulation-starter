@@ -40,6 +40,13 @@ After that I sort the songs from highest to lowest score (if there's a tie, the 
 - I'm not scoring valence, so a happy song and an angry song with the same energy can look the same.
 - The labels can beat the numbers. Someone who likes classical and melancholy but wants high energy would still get a quiet classical song first.
 
+**Extra features I added later:**
+
+- **5 new song columns:** popularity, release decade, mood tags, instrumentalness, and speechiness. They only count when a user profile asks for them.
+- **Scoring modes:** `balanced` (the one above), `genre_first`, `mood_first`, and `energy_focused`. Switch with `python src/main.py --mode mood_first` or use `--mode all`.
+- **Diversity penalty:** `--diversity` takes points off a song if its artist or genre is already in the top results.
+- **Summary table:** `--table` shows the results in a table with the reasons for each score.
+
 ---
 
 ## Getting Started
