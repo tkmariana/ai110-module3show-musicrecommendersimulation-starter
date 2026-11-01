@@ -132,6 +132,317 @@ Sunrise City is first because it matches everything. Rooftop Lights is second be
 
 ---
 
+## Profile Evaluation Output
+
+I tried 3 normal profiles and 3 tricky ones to see if I could trick it. This is the top 5 for each.
+
+### High-Energy Pop (Normal)
+
+```
+============================================================
+  PROFILE: High-Energy Pop
+  pop / happy / energy 0.9 / likes acoustic: False
+============================================================
+
+#1  Sunrise City by Neon Echo
+    Genre: pop  |  Mood: happy
+    Score: 5.82
+    Why:
+      - mood match (+2.0)
+      - genre match (+1.0)
+      - energy 0.82 is 0.08 from target (+1.84)
+      - acousticness 0.18 is 0.02 from target (+0.98)
+
+#2  Rooftop Lights by Indigo Parade
+    Genre: indie pop  |  Mood: happy
+    Score: 4.57
+    Why:
+      - mood match (+2.0)
+      - energy 0.76 is 0.14 from target (+1.72)
+      - acousticness 0.35 is 0.15 from target (+0.85)
+
+#3  Gym Hero by Max Pulse
+    Genre: pop  |  Mood: intense
+    Score: 3.79
+    Why:
+      - genre match (+1.0)
+      - energy 0.93 is 0.03 from target (+1.94)
+      - acousticness 0.05 is 0.15 from target (+0.85)
+
+#4  Storm Runner by Voltline
+    Genre: rock  |  Mood: intense
+    Score: 2.88
+    Why:
+      - energy 0.91 is 0.01 from target (+1.98)
+      - acousticness 0.10 is 0.10 from target (+0.90)
+
+#5  Neon Pulse by Circuit Haze
+    Genre: edm  |  Mood: energetic
+    Score: 2.73
+    Why:
+      - energy 0.95 is 0.05 from target (+1.90)
+      - acousticness 0.03 is 0.17 from target (+0.83)
+
+============================================================
+```
+
+What I expected. Gym Hero and Storm Runner show up just because the energy is close.
+
+### Chill Lofi (Normal)
+
+```
+============================================================
+  PROFILE: Chill Lofi
+  lofi / chill / energy 0.4 / likes acoustic: True
+============================================================
+
+#1  Midnight Coding by LoRoom
+    Genre: lofi  |  Mood: chill
+    Score: 5.87
+    Why:
+      - mood match (+2.0)
+      - genre match (+1.0)
+      - energy 0.42 is 0.02 from target (+1.96)
+      - acousticness 0.71 is 0.09 from target (+0.91)
+
+#2  Library Rain by Paper Lanterns
+    Genre: lofi  |  Mood: chill
+    Score: 5.84
+    Why:
+      - mood match (+2.0)
+      - genre match (+1.0)
+      - energy 0.35 is 0.05 from target (+1.90)
+      - acousticness 0.86 is 0.06 from target (+0.94)
+
+#3  Spacewalk Thoughts by Orbit Bloom
+    Genre: ambient  |  Mood: chill
+    Score: 4.64
+    Why:
+      - mood match (+2.0)
+      - energy 0.28 is 0.12 from target (+1.76)
+      - acousticness 0.92 is 0.12 from target (+0.88)
+
+#4  Focus Flow by LoRoom
+    Genre: lofi  |  Mood: focused
+    Score: 3.98
+    Why:
+      - genre match (+1.0)
+      - energy 0.40 is 0.00 from target (+2.00)
+      - acousticness 0.78 is 0.02 from target (+0.98)
+
+#5  Coffee Shop Stories by Slow Stereo
+    Genre: jazz  |  Mood: relaxed
+    Score: 2.85
+    Why:
+      - energy 0.37 is 0.03 from target (+1.94)
+      - acousticness 0.89 is 0.09 from target (+0.91)
+
+============================================================
+```
+
+Worked best. All 5 are quiet songs, and mood beat genre for Spacewalk Thoughts.
+
+### Deep Intense Rock (Normal)
+
+```
+============================================================
+  PROFILE: Deep Intense Rock
+  rock / intense / energy 0.92 / likes acoustic: False
+============================================================
+
+#1  Storm Runner by Voltline
+    Genre: rock  |  Mood: intense
+    Score: 5.88
+    Why:
+      - mood match (+2.0)
+      - genre match (+1.0)
+      - energy 0.91 is 0.01 from target (+1.98)
+      - acousticness 0.10 is 0.10 from target (+0.90)
+
+#2  Gym Hero by Max Pulse
+    Genre: pop  |  Mood: intense
+    Score: 4.83
+    Why:
+      - mood match (+2.0)
+      - energy 0.93 is 0.01 from target (+1.98)
+      - acousticness 0.05 is 0.15 from target (+0.85)
+
+#3  Sunrise City by Neon Echo
+    Genre: pop  |  Mood: happy
+    Score: 2.78
+    Why:
+      - energy 0.82 is 0.10 from target (+1.80)
+      - acousticness 0.18 is 0.02 from target (+0.98)
+
+#4  Neon Pulse by Circuit Haze
+    Genre: edm  |  Mood: energetic
+    Score: 2.77
+    Why:
+      - energy 0.95 is 0.03 from target (+1.94)
+      - acousticness 0.03 is 0.17 from target (+0.83)
+
+#5  Iron Tide by Black Anvil
+    Genre: metal  |  Mood: angry
+    Score: 2.74
+    Why:
+      - energy 0.97 is 0.05 from target (+1.90)
+      - acousticness 0.04 is 0.16 from target (+0.84)
+
+============================================================
+```
+
+Storm Runner is first like it should be. After #2 it's only energy, so happy and angry songs get mixed together.
+
+### Conflicted (sad but wants high energy) (Adversarial)
+
+```
+============================================================
+  PROFILE: Conflicted (sad but wants high energy)
+  classical / melancholy / energy 0.9 / likes acoustic: False
+============================================================
+
+#1  Hollow Winter by Clara Voss
+    Genre: classical  |  Mood: melancholy
+    Score: 3.79
+    Why:
+      - mood match (+2.0)
+      - genre match (+1.0)
+      - energy 0.18 is 0.72 from target (+0.56)
+      - acousticness 0.97 is 0.77 from target (+0.23)
+
+#2  Storm Runner by Voltline
+    Genre: rock  |  Mood: intense
+    Score: 2.88
+    Why:
+      - energy 0.91 is 0.01 from target (+1.98)
+      - acousticness 0.10 is 0.10 from target (+0.90)
+
+#3  Sunrise City by Neon Echo
+    Genre: pop  |  Mood: happy
+    Score: 2.82
+    Why:
+      - energy 0.82 is 0.08 from target (+1.84)
+      - acousticness 0.18 is 0.02 from target (+0.98)
+
+#4  Gym Hero by Max Pulse
+    Genre: pop  |  Mood: intense
+    Score: 2.79
+    Why:
+      - energy 0.93 is 0.03 from target (+1.94)
+      - acousticness 0.05 is 0.15 from target (+0.85)
+
+#5  Neon Pulse by Circuit Haze
+    Genre: edm  |  Mood: energetic
+    Score: 2.73
+    Why:
+      - energy 0.95 is 0.05 from target (+1.90)
+      - acousticness 0.03 is 0.17 from target (+0.83)
+
+============================================================
+```
+
+This tricked it. Hollow Winter has energy 0.18 but is still #1 because the labels give it 3 points. The labels beat the numbers.
+
+### Unknown labels (genre/mood not in catalog) (Adversarial)
+
+```
+============================================================
+  PROFILE: Unknown labels (genre/mood not in catalog)
+  k-pop / euphoric / energy 0.7 / likes acoustic: False
+============================================================
+
+#1  Night Drive Loop by Neon Echo
+    Genre: synthwave  |  Mood: moody
+    Score: 2.88
+    Why:
+      - energy 0.75 is 0.05 from target (+1.90)
+      - acousticness 0.22 is 0.02 from target (+0.98)
+
+#2  Concrete Jungle by Kid Cipher
+    Genre: hip hop  |  Mood: confident
+    Score: 2.76
+    Why:
+      - energy 0.78 is 0.08 from target (+1.84)
+      - acousticness 0.12 is 0.08 from target (+0.92)
+
+#3  Sunrise City by Neon Echo
+    Genre: pop  |  Mood: happy
+    Score: 2.74
+    Why:
+      - energy 0.82 is 0.12 from target (+1.76)
+      - acousticness 0.18 is 0.02 from target (+0.98)
+
+#4  Rooftop Lights by Indigo Parade
+    Genre: indie pop  |  Mood: happy
+    Score: 2.73
+    Why:
+      - energy 0.76 is 0.06 from target (+1.88)
+      - acousticness 0.35 is 0.15 from target (+0.85)
+
+#5  Island Breeze by Sol Marley
+    Genre: reggae  |  Mood: uplifting
+    Score: 2.55
+    Why:
+      - energy 0.60 is 0.10 from target (+1.80)
+      - acousticness 0.45 is 0.25 from target (+0.75)
+
+============================================================
+```
+
+Nothing matched, so the scores are all close and it only uses energy. It never says nothing really matched.
+
+### Acoustic metal (acoustic taste vs. loud genre) (Adversarial)
+
+```
+============================================================
+  PROFILE: Acoustic metal (acoustic taste vs. loud genre)
+  metal / angry / energy 0.97 / likes acoustic: True
+============================================================
+
+#1  Iron Tide by Black Anvil
+    Genre: metal  |  Mood: angry
+    Score: 5.24
+    Why:
+      - mood match (+2.0)
+      - genre match (+1.0)
+      - energy 0.97 is 0.00 from target (+2.00)
+      - acousticness 0.04 is 0.76 from target (+0.24)
+
+#2  Neon Pulse by Circuit Haze
+    Genre: edm  |  Mood: energetic
+    Score: 2.19
+    Why:
+      - energy 0.95 is 0.02 from target (+1.96)
+      - acousticness 0.03 is 0.77 from target (+0.23)
+
+#3  Storm Runner by Voltline
+    Genre: rock  |  Mood: intense
+    Score: 2.18
+    Why:
+      - energy 0.91 is 0.06 from target (+1.88)
+      - acousticness 0.10 is 0.70 from target (+0.30)
+
+#4  Gym Hero by Max Pulse
+    Genre: pop  |  Mood: intense
+    Score: 2.17
+    Why:
+      - energy 0.93 is 0.04 from target (+1.92)
+      - acousticness 0.05 is 0.75 from target (+0.25)
+
+#5  Rooftop Lights by Indigo Parade
+    Genre: indie pop  |  Mood: happy
+    Score: 2.13
+    Why:
+      - energy 0.76 is 0.21 from target (+1.58)
+      - acousticness 0.35 is 0.45 from target (+0.55)
+
+============================================================
+```
+
+Iron Tide is #1 even though it's not acoustic, because acousticness is only worth 1 point.
+
+---
+
 ## Experiments You Tried
 
 Use this section to document the experiments you ran. For example:
