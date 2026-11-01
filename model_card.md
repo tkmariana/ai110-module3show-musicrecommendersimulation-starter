@@ -21,16 +21,21 @@ Prompts:
 
 ## 3. How the Model Works  
 
-Explain your scoring approach in simple language.  
+My recommender looks at every song in the catalog one at a time and gives it a score based on how well it fits what the user likes. Then it puts the songs in order from highest score to lowest and shows the top 5.
 
-Prompts:  
+**What it looks at:** for each song it uses the genre, the mood, how energetic it is, and how acoustic it is. The user tells it their favorite genre, their favorite mood, how much energy they want, and whether they like acoustic music or not.
 
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
+**How the score works:** a song can earn up to 6 points.
+- 2 points if the mood is the one the user wants
+- 1 point if the genre is the one the user wants
+- up to 2 points for energy, and the closer the song is to the energy the user wants, the more points it gets
+- up to 1 point for acousticness, based on how close it is to what the user likes
 
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
+The important part is that energy is about being close, not about being high. If someone wants calm music, a quiet song gets more points than a loud one, and if they want intense music it's the other way around.
+
+**Why this way:** I made mood worth more than genre because the genres in my catalog mostly show up only once, so a genre match doesn't say much, while mood usually lines up with how a song actually feels. If two songs end up with the same score, the one with closer energy goes first. Each recommendation also comes with the reasons for its score, so you can see why it was picked.
+
+**What I changed from the starter:** the starter code didn't have any scoring or ranking, so I wrote the part that loads the songs, the part that scores one song, and the part that ranks all of them. I also added 8 more songs to the starter list so there's more variety.
 
 ---
 
